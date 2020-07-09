@@ -8,8 +8,7 @@ class Coffee_machine:
         self.start_menu()
 
     def remaining(self):
-        print()
-        print("The coffee machine has:")
+        print("\nThe coffee machine has:")
         print(self.water_in, "of water")
         print(self.milk_in, "of milk")
         print(self.coffee_in, "of coffee beans")
@@ -25,15 +24,13 @@ class Coffee_machine:
         self.coffee_in += int(input())
         print("Write how many disposable cups of coffee do you want to add:")
         self.cups_in += int(input())
+    def safe_division(a, b):
+        if not b:
+            return a
+        return a // b
 
     def buy(self):
         def type_of_coffee(water, milk, coffee, costs, need_cups_coffee):
-
-            def safe_division(a, b):
-                if not b:
-                    return a
-                return a // b
-
             ingredients_need = {
                 "milk": safe_division(self.milk_in, milk),
                 "coffee": safe_division(self.coffee_in, coffee),
@@ -63,8 +60,7 @@ class Coffee_machine:
                 elif self.cups_in < 1:
                     print("Sorry, not enough cups!")
 
-        print()
-        print("What do you want to buy? 1 - espresso, 2 - latte, 3 - cappuccino, back - to main menu:")
+        print("\nWhat do you want to buy? 1 - espresso, 2 - latte, 3 - cappuccino, back - to main menu:")
         switch2 = input()
         if switch2 == "1":
             type_of_coffee(250, 0, 16, 4, 1)  # espresso
@@ -81,8 +77,7 @@ class Coffee_machine:
 
     def start_menu(self):
         while True:
-            print()
-            print("Write action (buy, fill, take, remaining, exit):")
+            print("\nWrite action (buy, fill, take, remaining, exit):")
             switch = input()
             if switch == "buy":
                 self.buy()
